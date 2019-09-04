@@ -1,0 +1,52 @@
+
+// Colors
+$color-primary:				$COLOR-BlueDark !default;
+$color-secondary:			#212121 !default;
+$color-contrast:			complement($color-primary) !default;
+
+// TYPEOGRAPHY
+$main-font:						'roboto-regular';
+
+$font-serif: 					'Times New Roman', Times, serif !default;
+$font-sans-serif:			Arial, Helvetica, sans-serif !default;
+
+$font-size-smallest: 	10 !default;
+$font-size-smaller:	 	12 !default;
+$font-size-small: 		14 !default;
+$font-size-med:				16 !default;
+$font-size-large:			18 !default;
+$font-size-larger:		20 !default;
+$font-size-x-large:		22 !default;
+$font-size-xx-large:	24 !default;
+$font-size-xxx-large:	36 !default;
+
+$font-line-height:		1.5 !default;
+
+$base-font-size:			$font-size-med !default;
+$base-line-height:		$base-font-size * $font-line-height !default;
+$base-font-color:			$color-secondary !default;
+
+// Borders
+$border-color:				$COLOR-GreyLighter !default;
+$border-radius:				4 !default;
+
+//Breakpoints
+$bp-smallest:		340 !default;
+$bp-small:			480 !default;
+$bp-med:				670 !default;
+$bp-medLg:			850 !default;
+$bp-large:			1024 !default;
+$bp-larger:			1400 !default;
+$bp-largest:		1700 !default;
+
+$max-width:			1200 !default;
+
+
+// Components
+$COMPONENT_BUTTON:			false;
+$COMPONENT_FORM:				false;
+$COMPONENT_INPUT:				false;
+$COMPONENT_LINK:				false;
+$COMPONENT_LIST:				false;
+$COMPONENT_LINK:				false;
+$COMPONENT_WRAPPER:			false;

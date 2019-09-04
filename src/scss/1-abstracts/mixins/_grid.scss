@@ -1,0 +1,33 @@
+
+/// @param { unit } $col-gap - grid-column-gap. Used as grid-gap if no grid-row-gap specified;
+/// @param { unit } $row-gap - grid-column-row;
+/// @param { string } $just-i - justify-items;
+/// @param { string } $align-i - align-items;
+/// @param { string } $just-c - justify-content;
+/// @param { string } $align-c - align-items;
+/// @param { string } $flow - grid-auto-flow;
+
+@mixin grid(
+	$col-gap: $base-line-height,
+	$row-gap: null,
+	$just-i: null,
+	$align-i: null,
+	$just-c: null,
+	$align-c: null,
+	$flow: null
+) {
+	// flex fallback
+	@include flex($wrap: flex-wrap, $align: stretch);
+
+	@supports (display: grid) {
+		display: grid;
+		@if $row-gap and $col-gap {
+			grid-column-gap: rem($col-gap);
+			grid-row-gap: rem($row-gap);
+		}
+		@else {
+			grid-gap: rem($col-gap);
+		}
+	}
+
+}

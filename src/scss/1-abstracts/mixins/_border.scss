@@ -1,0 +1,16 @@
+/// BORDER
+/// @param { hex } $color - border-color;
+/// @param { number } $thickness - border-width;
+/// @param { string } $style - border-style;
+/// @param { list<string> } $positions - top, left, bottom, right
+@mixin border($color: $COLOR-GreyLighter, $thickness: 1, $style: solid, $positions: null) {
+	@if $positions {
+		border: none;
+		@each $position in $positions {
+			border-#{$position}: $style rem($thickness) $color;
+		}
+	}
+	@else {
+		border: $style rem($thickness) $color;
+	}
+}
