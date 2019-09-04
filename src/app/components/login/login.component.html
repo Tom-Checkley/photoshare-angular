@@ -1,0 +1,18 @@
+<main class="login">
+	<form (submit)="login()" class="form">
+		<div class="form__row">
+			<label for="email" class="form__label">Email</label>
+			<input type="email" required="required" id="email" class="form__input">
+			<span aria-live="polite" class="form__error">Email is required.</span>
+			<span aria-live="polite" class="form__error">A valid email adress must be used.</span>
+		</div>
+		<div class="form__row">
+			<label for="password" class="form__label">Password</label>
+			<input type="password" required="required" id="password" class="form__input">
+			<span aria-live="polite" class="form__error">Password is required.</span>
+		</div>
+		<div class="form__row">
+			<input type="submit" value="Login" class="button">
+		</div>
+	</form>
+</main>

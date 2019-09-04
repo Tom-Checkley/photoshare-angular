@@ -63,7 +63,11 @@
 /// @param { number } - value;
 /// @param { numebr : base-font-size } - font-size;
 @function rem($value, $font-size: $base-font-size) {
-	@if is-number($value) and $value != 0 {
+	@if is-number($value) and is-percentage($value) {
+		@return $value;
+	}
+
+	@else if is-number($value) and $value != 0 {
 			@return ($value / $font-size) * 1rem;
 	}
 

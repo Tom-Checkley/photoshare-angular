@@ -91,7 +91,7 @@
 	}
 	@else {
 		@if $fallback-width {
-			flex: $grow $shrink $fallback-width;
+			flex: $grow $shrink rem($fallback-width);
 		}
 	}
 

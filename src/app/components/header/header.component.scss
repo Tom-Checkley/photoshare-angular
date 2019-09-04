@@ -1,0 +1,15 @@
+@import '../../../scss/1-abstracts/_index';
+
+.header {
+	@include padding($base-line-height);
+	@include flex($justify: space-between, $align: center, $wrap: wrap);
+}
+
+.header__title {
+	@include margin(0);
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+}
