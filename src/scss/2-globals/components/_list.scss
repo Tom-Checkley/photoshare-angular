@@ -1,0 +1,11 @@
+.o-l {
+  @include margin(0);
+  @include padding(0);
+  list-style: none;
+}
+
+@include media($bp-med) {
+  .o-l--h {
+    display: flex;
+  }
+}

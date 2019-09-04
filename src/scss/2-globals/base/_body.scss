@@ -2,10 +2,6 @@
 	box-sizing: border-box;
 }
 
-* + * {
-	@include margin-top($base-line-height);
-}
-
 html,
 body {
 	margin: 0;
