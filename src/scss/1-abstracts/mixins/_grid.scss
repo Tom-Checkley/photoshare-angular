@@ -1,4 +1,4 @@
-
+/// @name grid
 /// @param { unit } $col-gap - grid-column-gap. Used as grid-gap if no grid-row-gap specified;
 /// @param { unit } $row-gap - grid-column-row;
 /// @param { string } $just-i - justify-items;
@@ -28,6 +28,91 @@
 		@else {
 			grid-gap: rem($col-gap);
 		}
+
+		@if $just-i {
+			justify-items: $just-i;
+		}
+
+		@if $align-i {
+			align-items: $align-i;
+		}
+
+		@if $just-c {
+			justify-content: $just-c;
+		}
+
+		@if $align-c {
+			align-content: $align-c;
+		}
+
+		@if $flow {
+			grid-auto-flow: $flow;
+		}
+	}
+}
+
+/// @name grid-cell
+/// @param { number } $col-start - grid-column-start;
+/// @param { number } $row-start - grid-row-start;
+/// @param { number } $col-end - grid-row-end - optional;
+/// @param { number } $row-end - grid-row-end - optional;
+/// @param { number } $context - used for flex fallback. Number of columns in parent grid;
+/// @param { boolean } $even-cols - specifies if columns are even width for flex fallback;
+/// @param { unit } $fallback-width - width for cell if $even-cols is false, falls back to auto;
+/// @param { number } $shrink - flex-shrink for fallback;
+/// @param { number } $grow - flex-grow for fallback;
+/// @param { string } $justify - justify-self;
+/// @param { string } $align - align-self;
+
+@mixin grid-cell(
+	$col-start,
+	$col-end: null,
+	$row-start,
+	$row-end: null,
+	$context: null,
+	$even-cols: true,
+	$fallback-width: auto,
+	$shrink: 0,
+	$grow: 0,
+	$justify: null,
+	$align: null
+) {
+
+	@if $even-cols {
+		$flex-context-start: $col-start;
+		@if $col-start == 1 {
+			$flex-context-start: 0;
+		}
+		$flex-context-end: $col-end;
+		@if $col-end == -1 {
+			$flex-context-end: $context;
+		}
+		flex: 0 0 percentage(($flex-context-end - $flex-context-start) / $context);
+	}
+	@else {
+		@if $fallback-width {
+			flex: $grow $shrink $fallback-width;
+		}
 	}
 
+	@if $justify {
+		justify-self: $justify;
+	}
+
+	@if $align {
+		align-self: $align;
+	}
+
+	@supports (display: grid) {
+		grid-column-start: $col-start;
+		grid-row-start: $row-start;
+
+		@if $col-end {
+			grid-column-end: $col-end;
+		}
+
+		@if $row-end {
+			grid-row-end: $row-end;
+		}
+	}
 }
