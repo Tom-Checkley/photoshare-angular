@@ -1,0 +1,8 @@
+.button {
+	appearance: none;
+	border: none;
+	background-color: $color-secondary;
+	color: $COLOR-White;
+	@include padding($base-line-height / 2, $base-line-height);
+	text-decoration: none;
+}
