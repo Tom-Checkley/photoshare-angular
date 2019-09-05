@@ -1,0 +1,10 @@
+@import '../../../scss/1-abstracts/_index';
+
+.main {
+  @include flex($justify: center, $align: center);
+}
+
+.form {
+  width: 100%;
+  max-width: rem(400);
+}
