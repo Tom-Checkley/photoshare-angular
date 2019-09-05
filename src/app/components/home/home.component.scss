@@ -1,0 +1,15 @@
+@import '../../../scss/1-abstracts/_index';
+
+.home {
+  @include flex($justify: center, $align: center);
+}
+
+.button {
+  min-width: rem(120);
+  text-align: center;
+  font-weight: 700;
+
+  & + & {
+    @include margin-left($base-line-height);
+  }
+}

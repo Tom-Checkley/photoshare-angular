@@ -1,0 +1,30 @@
+.form {
+  @include padding($base-line-height);
+}
+
+.form__row {
+  & + & {
+    @include margin-top($base-line-height);
+  }
+
+  * + * {
+    @include margin-top($base-line-height / 4);
+  }
+}
+
+.form__label {
+  display: block;
+}
+
+.form__input {
+  display: block;
+  border: 1px solid $color-secondary;
+  @include font-size($font-size-large);
+  @include padding($base-line-height / 4);
+}
+
+.form__error {
+  display: block;
+  color: $COLOR-Red;
+  font-weight: 700;
+}

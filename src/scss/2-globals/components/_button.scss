@@ -1,8 +1,16 @@
 .button {
+  display: inline-block;
 	appearance: none;
-	border: none;
+	border: 3px solid $color-secondary;
 	background-color: $color-secondary;
 	color: $COLOR-White;
 	@include padding($base-line-height / 2, $base-line-height);
-	text-decoration: none;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: $COLOR-White;
+    color: $color-secondary;
+  }
 }
