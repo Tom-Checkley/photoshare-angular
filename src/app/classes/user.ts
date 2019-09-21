@@ -3,6 +3,7 @@ export class User {
   lastName: string;
   email: string;
   password: string;
+  id: string;
   userName?: string;
   profileImage?: File;
   profileImageUrl?: string;
