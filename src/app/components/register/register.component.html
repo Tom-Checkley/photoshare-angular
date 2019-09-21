@@ -1,0 +1,100 @@
+<form class="form" (submit)="register()">
+
+	<div class="form__row">
+		<label for="firstName" class="form__label">First Name</label>
+		<input type="text"
+			class="form__input"
+			id="firstName"
+			name="firstName"
+			placeholder="First Name"
+			[(ngModel)]="firstName"
+			#userFirstName="ngModel"
+			required>
+
+		<div class="form__validation" *ngIf="userFirstName.touched && userFirstName.invalid">
+			<span class="form__error">First name is required</span>
+		</div>
+	</div>
+
+
+	<div class="form__row">
+		<label for="lastName" class="form__label">Last Name</label>
+		<input type="text"
+			class="form__input"
+			id="lastName"
+			name="lastName"
+			placeholder="Last Name"
+			[(ngModel)]="lastName"
+			#userLastName="ngModel"
+			required>
+
+		<div class="form__validation" *ngIf="userLastName.touched && userLastName.invalid">
+			<span class="form__error" *ngIf="userLastName.touched && userLastName.errors">Last name is required</span>
+		</div>
+	</div>
+
+
+	<div class="form__row">
+		<label for="userName" class="form__label">User Name</label>
+		<input type="text" class="form__input" id="userName" name="userName" placeholder="User Name">
+	</div>
+	<div class="form__row">
+		<label for="email" class="form__label">Email</label>
+		<input type="email"
+			class="form__input"
+			id="email"
+			name="email"
+			placeholder="Email address"
+			[(ngModel)]="email"
+			#userEmail="ngModel"
+			required email>
+
+		<div class="form__invalid" *ngIf="userEmail.touched && userEmail.invalid">
+			<span aria-live="polite" class="form__error" *ngIf="userEmail.errors['required']">Email is required.</span>
+			<span aria-live="polite" class="form__error" *ngIf="userEmail.errors['email']">A valid email adress must be
+				used.</span>
+		</div>
+	</div>
+
+
+	<div class="form__row">
+		<label for="password" class="form__label">Set Password</label>
+		<input type="password" 
+			class="form__input"
+			id="password"
+			name="password"
+			#userPassword="ngModel"
+			[(ngModel)]="password"
+			placeholder="Set password"
+			required>
+
+		<div class="form__validation" *ngIf="userPassword.touched && userPassword.invalid">
+			<span class="form__error" *ngIf="userPassword && userPassword.errors['required']">Password is required</span>
+			<span class="form__error" *ngIf="userConfirmPassword.touched && (userPassword !== userConfirmPassword)">Passwords don't match</span>
+		</div>
+	</div>
+
+
+	<div class="form__row">
+		<label for="confirmPassword" class="form__label">password</label>
+		<input type="password"
+			class="form__input"
+			id="confirmPassword"
+			name="confirmPassword"
+			#userConfirmPassword="ngModel"
+			[(ngModel)]="confirmPassword"
+			placeholder="Confirm Password"
+			required>
+
+		<div class="form__validation"
+			*ngIf="userConfirmPassword.touched && (userConfirmPassword.model != userPassword.model || userConfirmPassword.invalid)">
+			<span class="form__error" *ngIf="userConfirmPassword.errors && userConfirmPassword.errors['required']">Confirm Password is require</span>
+			<span class="form__error" *ngIf="userConfirmPassword !== userPassword">Passwords don't match</span>
+		</div>
+	</div>
+	<!-- <div class="form__row">
+		<label for="porfileImage" class="button">Add profile Image</label>
+		<input type="file" class="form__input vh" id="porfileImage" name="porfileImage" value="Select a profile image">
+	</div> -->
+	<div class="form__row"><input type="submit" value="Register" class="button"></div>
+</form>

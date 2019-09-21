@@ -1,18 +1,18 @@
 <main class="login main">
-	<form (submit)="f.form.valid && login(f)" class="form" novalidate  #f="ngForm">
+	<form (submit)="login()" class="form" novalidate>
 		<div class="form__row">
 			<label for="email" class="form__label">Email</label>
-			<input type="email" required email id="email" name="email" class="form__input" #email="ngModel" [(ngModel)]="user.email" autocomplete="off">
-			<div class="form__invalid" *ngIf="f.submitted && email.invalid">
-        <span aria-live="polite" class="form__error" *ngIf="email.errors.required">Email is required.</span>
-        <span aria-live="polite" class="form__error" *ngIf="email.errors.email">A valid email adress must be used.</span>
+			<input type="email" required email id="email" name="email" class="form__input" #userEmail="ngModel" [(ngModel)]="email">
+			<div class="form__invalid" *ngIf="userEmail.touched && userEmail.invalid">
+        <span aria-live="polite" class="form__error" *ngIf="userEmail.errors['required']">Email is required.</span>
+        <span aria-live="polite" class="form__error" *ngIf="userEmail.errors['email']">A valid email adress must be used.</span>
       </div>
 		</div>
 		<div class="form__row">
 			<label for="password" class="form__label">Password</label>
-			<input type="password" required id="password" name="password" class="form__input" #password="ngModel" [(ngModel)]="user.password">
-			<div class="form__invalid" *ngIf="f.submitted && password.invalid">
-        <span aria-live="polite" class="form__error" *ngIf="password.errors.required">Password is required.</span>
+			<input type="password" required id="password" name="password" class="form__input" #userPassword="ngModel" [(ngModel)]="password">
+			<div class="form__invalid" *ngIf="userPassword.touched && userPassword.invalid">
+        <span aria-live="polite" class="form__error" *ngIf="userPassword.errors['required']">Password is required.</span>
       </div>
 		</div>
 		<div class="form__row">
