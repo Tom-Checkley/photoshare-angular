@@ -35,9 +35,16 @@
 
 
 	<div class="form__row">
-		<label for="userName" class="form__label">User Name</label>
-		<input type="text" class="form__input" id="userName" name="userName" placeholder="User Name">
+		<label for="userName"class="form__label">User Name</label>
+		<input type="text"
+			class="form__input"
+			id="userName"
+			name="userName"
+			placeholder="User Name"
+			[(ngModel)]="userName">
 	</div>
+
+
 	<div class="form__row">
 		<label for="email" class="form__label">Email</label>
 		<input type="email"
@@ -58,7 +65,7 @@
 
 
 	<div class="form__row">
-		<label for="password" class="form__label">Set Password</label>
+		<label for="password" class="form__label">Set Password (Minimum of 8 characters)</label>
 		<input type="password" 
 			class="form__input"
 			id="password"
@@ -66,10 +73,12 @@
 			#userPassword="ngModel"
 			[(ngModel)]="password"
 			placeholder="Set password"
-			required>
+			required
+			minlength="8">
 
 		<div class="form__validation" *ngIf="userPassword.touched && userPassword.invalid">
 			<span class="form__error" *ngIf="userPassword && userPassword.errors['required']">Password is required</span>
+			<span class="form__error" *ngIf="userPassword && userPassword.errors['minlength']">Password must be at least 8 characters</span>
 			<span class="form__error" *ngIf="userConfirmPassword.touched && (userPassword !== userConfirmPassword)">Passwords don't match</span>
 		</div>
 	</div>
@@ -84,7 +93,8 @@
 			#userConfirmPassword="ngModel"
 			[(ngModel)]="confirmPassword"
 			placeholder="Confirm Password"
-			required>
+			required
+			minlength="8">
 
 		<div class="form__validation"
 			*ngIf="userConfirmPassword.touched && (userConfirmPassword.model != userPassword.model || userConfirmPassword.invalid)">

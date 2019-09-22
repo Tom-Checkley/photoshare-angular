@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/classes/user';
-import { RegisterService } from 'src/app/services/user/register.service';
+import { AuthService } from 'src/app/services/user/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -16,14 +16,14 @@ export class RegisterComponent implements OnInit {
   confirmPassword: string;
   newUser: User;
 
-  constructor(private registerService: RegisterService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   register() {
     if (!this.userName) {
-      this. userName = `${ this.firstName } ${ this.lastName }`;
+      this.userName = `${ this.firstName } ${ this.lastName }`;
     }
     this.newUser = {
       firstName: this.firstName,
@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
       password: this.password,
       id: undefined
     };
-    this.registerService.registerUser(this.newUser);
+    this.authService.registerUser(this.newUser);
   }
 
 }

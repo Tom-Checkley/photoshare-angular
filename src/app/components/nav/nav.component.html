@@ -1,16 +1,25 @@
 <nav class="nav">
   <ul class="o-l o-l--h">
-    <li class="o-l__item nav__item">
-      <a [routerLink]="['login']" class="nav__link">Login</a>
+    <li class="o-l__item nav__item" *ngIf="!isLoggedInUser" >
+      <a [routerLink]="['/login']" class="nav__link">Login</a>
+    </li>
+    <li class="o-l__item nav__item" *ngIf="!isLoggedInUser">
+      <a [routerLink]="['/register']" class="nav__link">Register</a>
     </li>
     <li class="o-l__item nav__item">
-      <a [routerLink]="['register']" class="nav__link">Register</a>
+      <a [routerLink]="['/photos']" class="nav__link">Photos</a>
     </li>
     <li class="o-l__item nav__item">
-      <a [routerLink]="['photos']" class="nav__link">Photos</a>
+      <a [routerLink]="['/upload']" class="nav__link">Upload</a>
     </li>
     <li class="o-l__item nav__item">
-      <a [routerLink]="['upload']" class="nav__link">Upload</a>
+      <button 
+        (click)="logout()"
+        class="nav__link button button--text"
+        *ngIf="isLoggedInUser"
+      >
+        <span>Log out</span>
+      </button>
     </li>
   </ul>
 </nav>
