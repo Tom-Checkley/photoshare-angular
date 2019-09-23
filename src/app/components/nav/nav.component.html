@@ -6,6 +6,9 @@
     <li class="o-l__item nav__item" *ngIf="!isLoggedInUser">
       <a [routerLink]="['/register']" class="nav__link">Register</a>
     </li>
+    <li class="o-l__item nav__item" *ngIf="isLoggedInUser && loggedInUser" >
+      <a [routerLink]="['/profile', loggedInUser.id]" class="nav__link">Profile</a>
+    </li>
     <li class="o-l__item nav__item">
       <a [routerLink]="['/photos']" class="nav__link">Photos</a>
     </li>

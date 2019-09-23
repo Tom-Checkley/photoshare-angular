@@ -24,10 +24,12 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getProfile();
   }
 
   getProfile() {
-    const id = this.
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
   }
 
 }
