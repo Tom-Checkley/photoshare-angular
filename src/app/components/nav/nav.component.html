@@ -1,21 +1,21 @@
 <nav class="nav">
   <ul class="o-l o-l--h">
-    <li class="o-l__item nav__item" *ngIf="!isLoggedInUser" >
-      <a [routerLink]="['/login']" class="nav__link">Login</a>
-    </li>
     <li class="o-l__item nav__item" *ngIf="!isLoggedInUser">
-      <a [routerLink]="['/register']" class="nav__link">Register</a>
+      <a [routerLink]="['register']" class="nav__link">Register</a>
+    </li>
+    <li class="o-l__item nav__item" *ngIf="!isLoggedInUser" >
+      <a [routerLink]="['login']" class="nav__link">Login</a>
     </li>
     <li class="o-l__item nav__item" *ngIf="isLoggedInUser && loggedInUser" >
-      <a [routerLink]="['/profile', loggedInUser.id]" class="nav__link">Profile</a>
+      <a [routerLink]="['profile', loggedInUser.id]" class="nav__link">Profile</a>
     </li>
-    <li class="o-l__item nav__item">
-      <a [routerLink]="['/photos']" class="nav__link">Photos</a>
+    <li class="o-l__item nav__item" *ngIf="isLoggedInUser">
+      <a [routerLink]="['photos']" class="nav__link">Photos</a>
     </li>
-    <li class="o-l__item nav__item">
-      <a [routerLink]="['/upload']" class="nav__link">Upload</a>
+    <li class="o-l__item nav__item" *ngIf="isLoggedInUser">
+      <a [routerLink]="['upload']" class="nav__link">Upload</a>
     </li>
-    <li class="o-l__item nav__item">
+    <li class="o-l__item nav__item" *ngIf="isLoggedInUser">
       <button 
         (click)="logout()"
         class="nav__link button button--text"

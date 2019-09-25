@@ -15,7 +15,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  user$: Observable<User>;
+  user: User;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +29,10 @@ export class ProfileComponent implements OnInit {
 
   getProfile() {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
+    this.userService.getUser(id).subscribe(user => {
+      this.user = user;
+      console.log(this.user);
+    });
   }
 
 }
