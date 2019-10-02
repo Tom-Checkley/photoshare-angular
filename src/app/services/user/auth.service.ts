@@ -13,6 +13,7 @@ export class AuthService {
   user$: Observable<User>;
 
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {
+
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
@@ -24,6 +25,7 @@ export class AuthService {
           }
       })
     );
+
   }
 
   login(email: string, password: string) {
