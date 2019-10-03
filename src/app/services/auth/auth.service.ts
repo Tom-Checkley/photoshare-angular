@@ -11,6 +11,8 @@ import { switchMap } from 'rxjs/operators';
 })
 export class AuthService {
   user$: Observable<User>;
+  isLoggedIn = false;
+  redirectUrl: string;
 
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {
 
@@ -28,13 +30,20 @@ export class AuthService {
 
   }
 
-  login(email: string, password: string) {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password)
-        .catch(error => console.error(error));
+  login(email: string, password: string): Promise<string | void> {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+        .then(
+          (user) => {
+            this.isLoggedIn = true;
+            return user.user.uid;
+          },
+          (err) => console.log(err)
+        );
   }
 
   logout() {
     this.afAuth.auth.signOut();
+    this.isLoggedIn = false;
   }
 
   userLoggedIn() {
