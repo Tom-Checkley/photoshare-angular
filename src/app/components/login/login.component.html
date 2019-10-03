@@ -4,16 +4,16 @@
 			<label for="email" class="form__label">Email</label>
 			<input type="email" required email id="email" name="email" class="form__input" #userEmail="ngModel" [(ngModel)]="email">
 			<div class="form__invalid" *ngIf="userEmail.touched && userEmail.invalid">
-        <span aria-live="polite" class="form__error" *ngIf="userEmail.errors['required']">Email is required.</span>
-        <span aria-live="polite" class="form__error" *ngIf="userEmail.errors['email']">A valid email adress must be used.</span>
-      </div>
+				<span aria-live="polite" class="form__error" *ngIf="userEmail.errors['required']">Email is required.</span>
+				<span aria-live="polite" class="form__error" *ngIf="userEmail.errors['email']">A valid email adress must be used.</span>
+			</div>
 		</div>
 		<div class="form__row">
 			<label for="password" class="form__label">Password</label>
 			<input type="password" required id="password" name="password" class="form__input" #userPassword="ngModel" [(ngModel)]="password">
 			<div class="form__invalid" *ngIf="userPassword.touched && userPassword.invalid">
-        <span aria-live="polite" class="form__error" *ngIf="userPassword.errors['required']">Password is required.</span>
-      </div>
+				<span aria-live="polite" class="form__error" *ngIf="userPassword.errors['required']">Password is required.</span>
+			</div>
 		</div>
 		<div class="form__row">
 			<input type="submit" value="Login" class="button">
