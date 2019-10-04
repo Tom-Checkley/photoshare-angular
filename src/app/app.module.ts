@@ -16,6 +16,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PhotosComponent } from './components/photos/photos.component';
+import { PhotoComponent } from './components/photo/photo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    PhotosComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,

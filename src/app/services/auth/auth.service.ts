@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable, of} from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class AuthService {
   isLoggedIn = false;
   redirectUrl: string;
 
-  constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {
+  constructor(private afAuth: AngularFireAuth, private db: AngularFirestore, private router: Router) {
 
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -44,6 +45,7 @@ export class AuthService {
   logout() {
     this.afAuth.auth.signOut();
     this.isLoggedIn = false;
+    this.router.navigate(['/login']);
   }
 
   userLoggedIn() {
