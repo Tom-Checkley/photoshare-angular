@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: NotFoundComponent },
+  { path: 'shared', loadChildren: () => import('./modules/shared/shared.module').then(m => m.SharedModule) },
 
 ];
 

@@ -36,4 +36,5 @@ export class RegisterComponent implements OnInit {
     this.authService.registerUser(this.newUser);
   }
 
+
 }
