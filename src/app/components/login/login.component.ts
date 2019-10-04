@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
         if (this.authService.redirectUrl) {
           this.router.navigate([this.authService.redirectUrl]);
         } else {
-          this.router.navigate([`profile/${id}`])
+          this.router.navigate([`user/profile/${id}`]);
         }
       },
       err => console.error(err)
