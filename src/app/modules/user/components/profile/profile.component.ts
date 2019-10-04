@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 import { User } from 'src/app/classes/user';
 
@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location,
+    private router: Router,
     private userService: UserService
   ) { }
 
@@ -25,8 +25,13 @@ export class ProfileComponent implements OnInit {
   getProfile() {
     const id = this.route.snapshot.paramMap.get('id');
     this.userService.getUser(id).subscribe(user => {
-      this.user = user;
-      console.log(this.user);
+      if (user.id) {
+        this.user = user;
+        console.log(this.user);
+      } else {
+        console.error('Id does not match a user: ', user);
+        this.router.navigate(['user-not-found']);
+      }
     });
   }
 

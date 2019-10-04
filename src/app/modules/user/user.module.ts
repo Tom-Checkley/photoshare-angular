@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { UserNotFoundComponent } from './components/user-not-found/user-not-found.component';
 
 
 @NgModule({
   declarations: [
     UserComponent,
-    ProfileComponent
+    ProfileComponent,
+    UserNotFoundComponent
   ],
   imports: [
     CommonModule,
