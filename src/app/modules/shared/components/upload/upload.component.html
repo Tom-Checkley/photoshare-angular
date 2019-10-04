@@ -1,1 +1,44 @@
-<p>upload works!</p>
+<form #fileUpload="ngForm" (ngSubmit)="savePost(fileUpload)" class="form" >
+    <div *ngIf="!formSubmitted">
+        <div class="form__row">
+          <div class="dropzone" appDropZone (hovered)="toggleHover(true)" (dropped)="getFile($event)" *ngIf="!file">
+            <h3 class="dropzone__title">Drag and drop a file</h3>
+            <p>or</p>
+            <label for="file" class="label dropzone__label">Select an image
+              <input type="file" class="input input--file dropzone__input vh" id="file" (change)="getFile($event.target.files)">
+            </label>
+          </div>
+
+          <div class="form__preview" *ngIf="imagePreview as url">
+            <img alt="" [src]="url">
+          </div>
+
+          <div class="form__progress" *ngIf="percentage as pct">
+              <progress max="100" [value]="pct">{{ pct }}</progress>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__label">
+            <label for="description" class="label">Description</label>
+          </div>
+          <div class="form__input">
+            <textarea name="description" id="description" cols="30" rows="7" class="input" [(ngModel)]="description"></textarea>
+          </div>
+        </div>
+        <div class="form__row">
+          <button type="submit" class="button">
+            <span class="button__text">Save Post</span>
+          </button>
+        </div>
+    </div>
+
+    <div class="submitted" *ngIf="formSubmitted">
+      <h2>Post successful</h2>
+      <a [routerLink]="['/photos']" class="button">
+        <span class="button__text">View photos</span>
+      </a>
+      <button class="button" (click)="resetForm(fileUpload)">
+        <span class="button__text">Post again</span>
+      </button>
+    </div>
+  </form>

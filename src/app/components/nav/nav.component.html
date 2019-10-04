@@ -13,10 +13,10 @@
       <a [routerLink]="['photos']" class="nav__link">Photos</a>
     </li>
     <li class="o-l__item nav__item" *ngIf="isLoggedInUser">
-      <a [routerLink]="['upload']" class="nav__link">Upload</a>
+      <a [routerLink]="['shared/upload']" class="nav__link">Upload</a>
     </li>
     <li class="o-l__item nav__item" *ngIf="isLoggedInUser">
-      <button 
+      <button
         (click)="logout()"
         class="nav__link button button--text"
         *ngIf="isLoggedInUser"

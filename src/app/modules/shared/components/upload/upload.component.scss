@@ -1,0 +1,60 @@
+$dropzone-size:     350px;
+$dropzone-bg-color: #ccc;
+$dropzone-color:    #222;
+
+.dropzone {
+  width: $dropzone-size;
+  height: $dropzone-size;
+  margin: auto;
+  border: 4px dashed $dropzone-color;
+  background-color: lighten($dropzone-bg-color, 15%);
+  color: $dropzone-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.hovering {
+    background-color: $dropzone-bg-color;
+  }
+}
+
+.dropzone__label,
+.button {
+  padding: .5rem 1rem;
+  color: #fff;
+  background-color: $dropzone-color;
+}
+
+.form__row {
+  width: 90%;
+  max-width: $dropzone-size;
+  margin: auto;
+
+  & + & {
+    padding-top: 1rem;
+  }
+}
+
+progress {
+  width: 100%;
+  &::-webkit-progress-value {
+    transition: width 0.1s ease;
+  }
+}
+
+.form__input {
+}
+.input {
+  width: 100%;
+  &--textarea {
+    margin-top: .5rem;
+    border: 1px solid $dropzone-color;
+  }
+}
+
+.form__preview {
+  // width: 90%;
+  max-width: 800px;
+  margin: 1rem auto;
+}
