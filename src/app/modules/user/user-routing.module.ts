@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: UserComponent,
     children: [
-      { path: 'profile/:id', component: ProfileComponent }
+      { path: '/profile/:id', component: ProfileComponent }
     ]
   }
 ];
