@@ -1,1 +1,6 @@
-<p>image works!</p>
+<picture class="image" loading="lazy" *ngIf="img | async" >
+	<source *ngIf="img.srcsetWebP"  (srcset)="img?.srcsetWebP" type="image/webp">
+	<source *ngIf="img.srcsetWebPWide"  (srcset)="img?.srcsetWebPWide" type="image/webp" media="(min-width: 900px)">
+	<source *ngIf="img.srcset"  (srcset)="img?.srcset" media="(min-width: 900px)">
+	<img (src)="img.src" (alt)="img?.alt">
+</picture>

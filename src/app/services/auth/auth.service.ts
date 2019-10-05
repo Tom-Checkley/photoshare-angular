@@ -21,9 +21,11 @@ export class AuthService {
       switchMap(user => {
         if (user) {
             // logged in, get custom user from Firestore
+            this.isLoggedIn = true;
             return this.db.doc<User>(`users/${user.uid}`).valueChanges();
           } else {
             // logged out, null
+            this.isLoggedIn = false;
             return of(null);
           }
       })
